@@ -102,8 +102,6 @@ void MainWindow::keyDownHandler(QKeyEvent *event)
         else
             return;
 
-        //selectedItem->tags->removeOne((std::pair<char*,QRectF>*)rectItem->data(Qt::UserRole+1).toULongLong()); // Do not use removeAt, as the indexes may shift.
-
         scene->removeItem(textItem);
         scene->removeItem(item);
 
@@ -111,7 +109,6 @@ void MainWindow::keyDownHandler(QKeyEvent *event)
         delete item;
 
         ui->graphicsView->selectedItem=0;
-        //saveCurrentTags();
     }
 }
 
@@ -213,7 +210,6 @@ void MainWindow::saveDialogFileSelected(QString path)
     QBrush filledPixelBrush=QBrush(0xffff0000);
     QBrush emptyPixelBrush=QBrush(png?0x00000000 /*Supports transparency*/:0xffffffff);
 
-
     /*uint32_t *data=(uint32_t*)malloc(bgImageWidth*bgImageHeight*sizeof(uint32_t));
     for(int y=0;y<bgImageHeight;y++)
     {
@@ -225,6 +221,7 @@ void MainWindow::saveDialogFileSelected(QString path)
         }
     }
     */
+
     QImage newImg=QImage(bgImageWidth,bgImageHeight,QImage::Format_ARGB32);
     QPainter painter;
     painter.begin(&newImg);
