@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>colors.jpg</file>
+    </qresource>
+</RCC>
